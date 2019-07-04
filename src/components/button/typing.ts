@@ -4,5 +4,6 @@ export interface ButtonProps extends KUI.BaseProps {
   disabled?: boolean;
   active?: boolean;
   size?: KUI.SizeTypes;
+  full?: boolean;
   onClick?: () => void;
 }

@@ -1,11 +1,16 @@
-import Taro, { PureComponent } from "@tarojs/taro";
+import Taro from "@tarojs/taro";
 import { Button } from "@tarojs/components";
 import classnames from "classnames";
 import { ButtonProps } from "./typing";
+import KComponent from "../../common/component";
 
 const prefixCls = "k-button";
 
-class KButton extends PureComponent<ButtonProps> {
+class KButton extends KComponent<ButtonProps> {
+  static options = {
+    addGlobalClass: true
+  };
+
   static defaultProps = {
     disabled: false
   };
@@ -13,15 +18,15 @@ class KButton extends PureComponent<ButtonProps> {
   public componentDidMount() {}
 
   public render() {
-    const { disabled, color, className } = this.props;
+    const { color, size, active, disabled, full, className } = this.props;
     const classString = classnames(
       {
         [prefixCls]: true,
-        [`${prefixCls}--${color}`]: !!color
-        // [`${prefixCls}--${size}`]: !!size,
-        // [`${prefixCls}--active`]: !!active,
-        // [`${prefixCls}--disabled`]: !!disabled,
-        // [`${prefixCls}--full`]: !!full
+        [`${prefixCls}--${color}`]: !!color,
+        [`${prefixCls}--${size}`]: !!size,
+        [`${prefixCls}--active`]: !!active,
+        [`${prefixCls}--disabled`]: !!disabled,
+        [`${prefixCls}--full`]: !!full
       },
       className
     );
