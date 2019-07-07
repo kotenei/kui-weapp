@@ -3,13 +3,12 @@ import { Button } from "@tarojs/components";
 import classnames from "classnames";
 import { ButtonProps } from "./typing";
 import KComponent from "../../common/component";
+import "./style.scss";
 
 const prefixCls = "k-button";
 
 class KButton extends KComponent<ButtonProps> {
-  static options = {
-    addGlobalClass: true
-  };
+
 
   static defaultProps = {
     disabled: false

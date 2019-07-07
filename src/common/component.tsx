@@ -1,6 +1,6 @@
-import Taro, { PureComponent } from "@tarojs/taro";
+import Taro from "@tarojs/taro";
 
-export default class KComponent<P = {}, S = {}> extends PureComponent<P, S> {
+export default class KComponent<P = {}, S = {}> extends Taro.Component<P, S> {
   static options = {
     addGlobalClass: true
   };

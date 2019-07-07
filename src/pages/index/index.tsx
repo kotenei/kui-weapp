@@ -29,8 +29,7 @@ export default class Index extends Component {
   render() {
     return (
       <View className="index">
-        <Text >Hello world!</Text>
-        <KButton>测试</KButton>
+        <KButton >测试</KButton>
       </View>
     );
   }
