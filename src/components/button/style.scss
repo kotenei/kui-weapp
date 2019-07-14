@@ -13,30 +13,29 @@
     position: relative;
     outline: none;
     border: $border-width-base $border-style-base $border-color-base;
-    padding: 8px 16px;
-    // font-size: $font-size-base;
-    // border-radius: $button-border-radius;
-    // background: $button-bgColor;
-    // color: $button-color;
-    font-size: 30px;
-    line-height: $line-height;
+    padding: $h-spacing-md $v-spacing-lg;
+    font-size: $font-size-base;
+    border-radius: $radius-base;
+    background: $bg-color-base;
+    color: $text-color;
+    line-height: $line-height-zh;
 
     @each $color,
     $value in $colors {
         @include bem-modifier($color) {
             background: $value;
-            color: #fff;
+            color: $white-color;
             border-color: $value;
         }
     }
 
-    // @each $size,
-    // $value in $button-size-map {
-    //     @include bem-modifier($size) {
-    //         padding: map-get($value, 'padding');
-    //         font-size: map-get($value, 'fontSize');
-    //     }
-    // }
+    @each $size,
+    $value in $button-size-map {
+        @include bem-modifier($size) {
+            padding: map-get($value, 'padding');
+            font-size: map-get($value, 'fontSize');
+        }
+    }
 
     @include bem-modifier('disabled') {
         color: $disabled-color;
@@ -44,17 +43,17 @@
         border-color: $disabled-border-color;
     }
 
-    // @include bem-modifier('active') {
-    //     background: $button-active-bgColor;
-    //     border-color: darken($border-color-base, 5);
+    @include bem-modifier('active') {
+        background: $button-active-bgColor;
+        border-color: darken($border-color-base, 5);
 
-    //     @each $color,
-    //     $value in $colors {
-    //         &.#{$namespace}-button--#{$color} {
-    //             background: darken($value, 5%);
-    //         }
-    //     }
-    // }
+        @each $color,
+        $value in $colors {
+            &.#{$namespace}-button--#{$color} {
+                background: darken($value, 5%);
+            }
+        }
+    }
 
     @include bem-modifier('full') {
         width: 100%;
@@ -62,34 +61,34 @@
     }
 }
 
-// @include bem-block('button-group') {
-//     display: inline-block;
-//     position: relative;
+@include bem-block('button-group') {
+    display: inline-block;
+    position: relative;
 
-//     @include element('button') {
-//         &:first-child {
-//             border-top-right-radius: 0;
-//             border-bottom-right-radius: 0;
-//         }
+    @include element('button') {
+        &:first-child {
+            border-top-right-radius: 0;
+            border-bottom-right-radius: 0;
+        }
 
-//         &:not(:first-child):not(:last-child) {
-//             border-radius: 0;
-//         }
+        &:not(:first-child):not(:last-child) {
+            border-radius: 0;
+        }
 
-//         &:last-child {
-//             border-top-left-radius: 0;
-//             border-bottom-left-radius: 0;
-//         }
+        &:last-child {
+            border-top-left-radius: 0;
+            border-bottom-left-radius: 0;
+        }
 
-//         &:not(:first-child) {
-//             margin-left: -1px;
-//         }
+        &:not(:first-child) {
+            margin-left: -1px;
+        }
 
-//         @each $color,
-//         $value in $colors {
-//             &--#{$color} {
-//                 border-left-color: darken($value, 5%);
-//             }
-//         }
-//     }
-// }
+        @each $color,
+        $value in $colors {
+            &--#{$color} {
+                border-left-color: darken($value, 5%);
+            }
+        }
+    }
+}

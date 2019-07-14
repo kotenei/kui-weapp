@@ -1,8 +1,7 @@
 import Taro, { Component, Config } from "@tarojs/taro";
 import { View, Text } from "@tarojs/components";
+import { KNavBar } from "kui-weapp";
 import "./index.scss";
-
-import { KButton } from "kui-weapp";
 
 export default class Index extends Component {
   /**
@@ -28,8 +27,8 @@ export default class Index extends Component {
 
   render() {
     return (
-      <View className="index">
-        <KButton >测试</KButton>
+      <View className="page">
+        <KNavBar mode='dark'>标题</KNavBar>
       </View>
     );
   }

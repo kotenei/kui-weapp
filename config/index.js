@@ -48,7 +48,9 @@ const config = {
         },
         pxtransform: {
           enable: true,
-          config: {}
+          config: {
+            selectorBlackList:['k']
+          }
         },
         url: {
           enable: true,
