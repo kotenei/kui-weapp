@@ -3,11 +3,10 @@ import { View, Text } from "@tarojs/components";
 import classnames from "classnames";
 import "./style.scss";
 
-
 const prefixCls = "app-block";
 
 const Block = props => {
-  const { title, children, bodyPadding } = props;
+  const { title, bodyPadding } = props;
   let padding = true;
   if (typeof bodyPadding === "boolean") {
     padding = bodyPadding;
@@ -21,7 +20,7 @@ const Block = props => {
           [`${prefixCls}-body--padding`]: padding
         })}
       >
-        {children}
+        {props.children}
       </View>
     </View>
   );

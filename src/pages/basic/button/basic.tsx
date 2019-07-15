@@ -1,5 +1,5 @@
 import Taro, { Component } from "@tarojs/taro";
-import {View} from '@tarojs/components';
+import { View } from "@tarojs/components";
 import { KButton } from "kui-weapp";
 
 export default class Demo extends Component {
@@ -16,7 +16,7 @@ export default class Demo extends Component {
         &nbsp;&nbsp;
         <KButton color="warning">warning</KButton>
         &nbsp;&nbsp;
-        <KButton color="danger" >danger</KButton>
+        <KButton color="danger">danger</KButton>
         &nbsp;&nbsp;
         <KButton disabled>disabled</KButton>
       </View>
