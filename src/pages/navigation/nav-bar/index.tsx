@@ -2,15 +2,12 @@ import Taro, { Component } from "@tarojs/taro";
 import { View } from "@tarojs/components";
 import KBlock from "../../components/block/index";
 import Basic from "./basic";
-import Size from "./size";
-// import Icon from "./Icon";
-import "./index.scss";
 
-const prefixCls = "app-button";
+const prefixCls = "app-nav-bar";
 
 export default class Page extends Component {
   config = {
-    navigationBarTitleText: "Button 按钮"
+    navigationBarTitleText: "NavBar 导航栏"
   };
 
   render() {
@@ -18,9 +15,6 @@ export default class Page extends Component {
       <View className={prefixCls}>
         <KBlock title="基础用法">
           <Basic />
-        </KBlock>
-        <KBlock title="尺寸">
-          <Size />
         </KBlock>
       </View>
     );
