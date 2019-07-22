@@ -28,7 +28,7 @@ class KButton extends KComponent<ButtonProps> {
 
     return (
       <Button className={classString} disabled={disabled}>
-        {icon ? <KIcon type={icon} /> : null}
+        {icon ? <KIcon type={icon} spin /> : null}
         {this.props.children}
       </Button>
     );

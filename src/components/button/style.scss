@@ -5,7 +5,7 @@
 
 
 @include bem-block('button') {
-    display: inline-block;
+    display: inline-flex;
     text-align: center;
     white-space: nowrap;
     vertical-align: middle;
@@ -19,6 +19,7 @@
     background: $bg-color-base;
     color: $text-color;
     line-height: $line-height-zh;
+    align-items: center;
 
     @each $color,
     $value in $colors {

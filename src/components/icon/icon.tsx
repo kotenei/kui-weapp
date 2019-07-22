@@ -12,7 +12,6 @@ export default class KIcon extends KComponent<IconProps> {
   public render() {
     const {
       className,
-      spin,
       color,
       type,
       style,
@@ -28,7 +27,6 @@ export default class KIcon extends KComponent<IconProps> {
         [`${prefixCls}-${type}`]: !!type,
         [`${prefixCls}-check-circle`]: true,
         [`${prefixCls}--${color}`]: !!color,
-        [`${prefixCls}--spin`]: !!spin
       },
       className
     );

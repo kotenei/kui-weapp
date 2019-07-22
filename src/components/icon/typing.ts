@@ -4,6 +4,5 @@ export interface IconProps extends KUI.BaseProps {
   fontSize?: number;
   type: string;
   color?: KUI.ColorTypes;
-  spin?: boolean;
   onClick?: () => void;
 }

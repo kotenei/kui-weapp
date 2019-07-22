@@ -1,8 +1,14 @@
 @import "../../assets/fonts/iconfont.scss";
+@import '../../assets/styles/variables';
+@import '../../assets/styles/mixins';
 
 .k-icon {
     display: inline-block;
-    vertical-align: middle;
-    margin:0 4px;
+    text-align: center;
+    margin: 0 4px;
     font-size: inherit;
+
+    @include bem-modifier('spin') {
+        animation: loadingCircle 1s infinite linear;
+    }
 }
