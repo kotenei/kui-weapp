@@ -7,12 +7,18 @@ $grid-size: (xs: 576px, sm: 576px, md: 768px, lg: 992px, xl: 1200px, xxl: 1600px
 $grid-colums: 24;
 
 @include bem-block("row") {
-    display: flex;
-    flex-flow: row wrap;
+    // display: block;
+    // flex-flow: row wrap;
 
-    &::before,
+    // &::before,
+    // &::after {
+    //     display: flex;
+    // }
+
     &::after {
-        display: flex;
+        content: "";
+        display: table;
+        clear: both;
     }
 
     @each $justify in map-keys($grid-justify-content) {
@@ -29,8 +35,11 @@ $grid-colums: 24;
 }
 
 @include bem-block('col') {
-    display: block;
+    // display: inline-block;
+    box-sizing: border-box;
     position: relative;
+    // flex: 1;
+    float: left;
 }
 
 @for $i from 1 through $grid-colums {

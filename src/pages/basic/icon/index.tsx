@@ -1,4 +1,4 @@
-import Taro, { Component } from "@tarojs/taro";
+import Taro from "@tarojs/taro";
 import { View } from "@tarojs/components";
 import KBlock from "../../components/block/index";
 import Basic from "./basic";

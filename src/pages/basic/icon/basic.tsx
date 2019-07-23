@@ -1,4 +1,4 @@
-import Taro, { Component } from "@tarojs/taro";
+import Taro  from "@tarojs/taro";
 import { View } from "@tarojs/components";
 import { iconList } from "../../../components/icon/icon-list";
 import { KIcon } from "kui-weapp";

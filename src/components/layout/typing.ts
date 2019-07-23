@@ -14,6 +14,7 @@ export interface RowProps extends KUI.BaseProps {
 }
 
 export interface ColProps extends KUI.BaseProps {
+  gutter?: number;
   offset?: number;
   span?: number;
   xs?: number;
@@ -22,5 +23,4 @@ export interface ColProps extends KUI.BaseProps {
   lg?: number;
   xl?: number;
   xxl?: number;
-  [key: string]: any;
 }

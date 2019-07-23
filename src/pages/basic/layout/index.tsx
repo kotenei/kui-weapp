@@ -2,6 +2,9 @@ import Taro, { Component } from "@tarojs/taro";
 import { View } from "@tarojs/components";
 import KBlock from "../../components/block/index";
 import Basic from "./basic";
+import Gutter from './gutter';
+import Offset from './offset';
+import Flex from './flex';
 import "./index.scss";
 import KComponent from "../../../common/component";
 
@@ -18,6 +21,15 @@ export default class Page extends KComponent {
         <KBlock title="基础用法">
           <Basic />
         </KBlock>
+        <KBlock title="区块间隔">
+          <Gutter />
+        </KBlock>
+        <KBlock title="偏移">
+          <Offset />
+        </KBlock>
+        {/* <KBlock title="Flex 布局">
+          <Flex />
+        </KBlock> */}
       </View>
     );
   }

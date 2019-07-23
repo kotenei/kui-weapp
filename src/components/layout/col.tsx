@@ -1,10 +1,9 @@
-import Taro, { useContext } from "@tarojs/taro";
+import Taro from "@tarojs/taro";
 import { View } from "@tarojs/components";
 import classnames from "classnames";
 import { ColProps } from "./typing";
 import omit from "object.omit";
 import KComponent from "../../common/component";
-import LayoutContext from "./context";
 
 const prefixCls = "k-col";
 
@@ -15,14 +14,12 @@ export default class KCol extends KComponent<ColProps> {
     offset: 0
   };
   public render() {
-    const { className, offset, span } = this.props;
+    const { className, offset, span, gutter, style } = this.props;
     let responsiveClasses = {};
     let props = {
-      ...omit(this.props, ["children", "className", "offset", "span"])
+      ...omit(this.props, ["children", "className", "offset", "span", "style"])
     };
     const sizes = ["xs", "sm", "md", "lg", "xl", "xxl"];
-
-    const gutter = useContext(LayoutContext);
 
     sizes.forEach((size: string) => {
       let sizeSpan;
@@ -45,15 +42,14 @@ export default class KCol extends KComponent<ColProps> {
       responsiveClasses
     );
 
-    const style: any = {};
-
+    const _style: any = {};
     if (gutter) {
-      style.paddingLeft = gutter / 2 + "px";
-      style.paddingRight = gutter / 2 + "px";
+      _style.paddingLeft = gutter / 2 + "px";
+      _style.paddingRight = gutter / 2 + "px";
     }
 
     return (
-      <View className={classes} {...props} style={style}>
+      <View className={classes}  style={{ ...style, ..._style }}>
         {this.props.children}
       </View>
     );
