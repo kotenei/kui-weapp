@@ -25,11 +25,12 @@ export default class KIcon extends KComponent<IconProps> {
       {
         [prefixCls]: true,
         [`${prefixCls}-${type}`]: !!type,
-        [`${prefixCls}-check-circle`]: true,
         [`${prefixCls}--${color}`]: !!color,
       },
       className
     );
+
+
     const _style = {
       fontSize,
       ...style

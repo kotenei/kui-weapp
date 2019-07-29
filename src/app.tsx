@@ -22,8 +22,9 @@ class App extends Component {
       // 'pages/index/index',
       // 'pages/basic/button/index',
       // 'pages/basic/icon/index',
-      "pages/basic/layout/index"
+      // "pages/basic/layout/index"
       // 'pages/navigation/nav-bar/index'
+      'pages/feedback/loading/index'
     ],
     window: {
       backgroundTextStyle: "light",

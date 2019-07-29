@@ -1,4 +1,3 @@
-@import "../../assets/fonts/iconfont.scss";
 @import '../../assets/styles/variables';
 @import '../../assets/styles/mixins';
 
@@ -7,6 +6,13 @@
     text-align: center;
     margin: 0 4px;
     font-size: inherit;
+
+    @each $color,
+    $value in $colors {
+        @include bem-modifier($color) {
+            @include text-color($value);
+        }
+    }
 
     @include bem-modifier('spin') {
         animation: loadingCircle 1s infinite linear;
