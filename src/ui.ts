@@ -1,3 +1,4 @@
+export { default as KAlert } from "./components/alert/alert";
 export { default as KButton } from "./components/button/button";
 export { default as KIcon } from "./components/icon/icon";
 export { default as KRow } from "./components/layout/row";

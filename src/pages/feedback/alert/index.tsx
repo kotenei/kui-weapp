@@ -2,17 +2,14 @@ import Taro, { Component } from "@tarojs/taro";
 import { View } from "@tarojs/components";
 import KBlock from "../../components/block/index";
 import Basic from "./basic";
-import Color from "./color";
-import Size from "./size";
-import Tip from "./tip";
-import Vertical from "./vertical";
+// import Vertical from "./vertical";
 // import "./index.scss";
 
 const prefixCls = "app-loading";
 
 export default class Page extends Component {
   config = {
-    navigationBarTitleText: "Loading 加载"
+    navigationBarTitleText: "Alert 告警提示"
   };
 
   render() {
@@ -21,7 +18,7 @@ export default class Page extends Component {
         <KBlock title="基础用法">
           <Basic />
         </KBlock>
-        <KBlock title="自定义颜色">
+        {/* <KBlock title="自定义颜色">
           <Color />
         </KBlock>
         <KBlock title="尺寸">
@@ -32,7 +29,7 @@ export default class Page extends Component {
         </KBlock>
         <KBlock title="垂直方向">
           <Vertical />
-        </KBlock>
+        </KBlock> */}
       </View>
     );
   }

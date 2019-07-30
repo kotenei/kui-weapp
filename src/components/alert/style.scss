@@ -1,0 +1,64 @@
+@import '../../assets/styles/variables';
+@import '../../assets/styles/mixins';
+
+@include bem-block('alert') {
+    padding: 15px 35px 15px 15px;
+    color: $white-color;
+    position: relative;
+    border-radius: $radius-base;
+    display: flex;
+    margin-bottom: 16px;
+    background: $primary-color;
+    align-items: center;
+    transition: all .3s ease;
+    opacity: 0;
+
+    @include bem-modifier('active'){
+        opacity: 1;
+    }
+
+    @include bem-modifier('info') {
+        background: $info-color;
+    }
+    @include bem-modifier('success') {
+        background: $success-color;
+    }
+    @include bem-modifier('warning') {
+        background: $warning-color;
+    }
+    @include bem-modifier('danger') {
+        background: $danger-color;
+    }
+    @include bem-element('close') {
+        color: $white-color;
+        position: absolute;
+        top: 10px;
+        right: 15px;
+        @include text-color($white-color);
+    }
+    @include bem-element(('icon', 'content')) {
+        display: table-cell;
+    }
+    @include bem-element('icon') {
+        width: 16px;
+        vertical-align: middle;
+        font-size: $font-size-base;
+        @include text-color($white-color);
+        @include bem-modifier('lg') {
+            font-size: 36px;
+        }
+    }
+    @include bem-element('content') {
+        padding-left: 8px;
+    }
+    @include bem-element('description') {
+        margin-top: 4px;
+        color: rgba(255, 255, 255, .8);
+    }
+    @include bem-element('closetext') {
+        position: absolute;
+        right: 16px;
+        cursor: pointer;
+        top: 15px;
+    }
+}

@@ -107,8 +107,8 @@ lg: (fontSize: $font-size-caption,
 );
 
 // loading
-$loading-size-map: (sm: (width:24px, height:24px),
-lg: (width:48px, height:48px));
+$loading-size-map: (sm: (fontSize:24px),
+lg: (fontSize:48px));
 
 // navbar
 $navbar-height: 48px;

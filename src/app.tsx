@@ -24,7 +24,8 @@ class App extends Component {
       // 'pages/basic/icon/index',
       // "pages/basic/layout/index"
       // 'pages/navigation/nav-bar/index'
-      'pages/feedback/loading/index'
+      // 'pages/feedback/loading/index'
+      'pages/feedback/alert/index'
     ],
     window: {
       backgroundTextStyle: "light",
