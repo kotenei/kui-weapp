@@ -1,0 +1,107 @@
+@import '../../assets/styles/variables';
+@import '../../assets/styles/mixins';
+
+$prefix: 'cell';
+$prefix-left: #{$prefix}-left;
+$prefix-middle: #{$prefix}-middle;
+$prefix-right: #{$prefix}-right;
+$group:#{$prefix}-group;
+
+@include bem-block($prefix) {
+    overflow: hidden;
+    background: $white-color;
+    height: 48px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 0 15px;
+
+    @include bem-modifier('border') {
+        &::after {
+            content: ' ';
+            display: block;
+            height: 1px;
+            background: $border-color-base;
+            position: absolute;
+            bottom: 0px;
+            left: 15px;
+            right: 0;
+        }
+    }
+
+    @include bem-modifier('borderless'){
+        &::after {
+            display: none;
+        }
+    }
+
+    @include bem-modifier('disabled') {
+        @include text-color($disabled-color);
+
+        @include element('cell-middle__title') {
+            @include text-color($disabled-color);
+        }
+
+        @include element('cell-middle__label') {
+            @include text-color($disabled-color);
+        }
+
+        @include element('cell-middle__value') {
+            @include text-color($disabled-color);
+        }
+    }
+
+    @include bem-modifier('lg') {
+        height: 56px;
+        font-size: $font-size-caption;
+    }
+
+    @include bem-element('link') {
+        flex: 1;
+        height: 100%;
+    }
+}
+
+@include bem-block($prefix-left) {
+    margin-right: 10px;
+}
+
+@include bem-block($prefix-middle) {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+    flex: 1;
+
+    @include bem-element('text') {
+        flex: 1;
+    }
+
+    @include bem-element('title') {
+        color: $title-color;
+        display: flex;
+        align-items: center;
+    }
+
+    @include bem-element('label') {
+        color: $subsidiary-color;
+        font-size: $font-size-caption-sm;
+        margin-top: 3px;
+    }
+
+    @include bem-element('value') {
+        color: $subsidiary-color;
+        font-size: $font-size-caption-sm;
+    }
+}
+
+@include bem-block($prefix-right) {
+    margin-left: 10px;
+}
+
+@include bem-block($group) {
+    @include bem-modifier('border') {
+        border-top: $border-width-base $border-style-base $border-color-base;
+        border-bottom: $border-width-base $border-style-base $border-color-base;
+    }
+}
