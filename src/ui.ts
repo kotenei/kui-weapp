@@ -1,4 +1,6 @@
 export { default as KAlert } from "./components/alert/alert";
+export { default as KAvatar } from "./components/avatar/avatar";
+export { default as KBadge } from "./components/badge/badge";
 export { default as KButton } from "./components/button/button";
 export { default as KCard } from "./components/card/card";
 export { default as KCardHeader } from "./components/card/card-header";

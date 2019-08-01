@@ -12,13 +12,9 @@ class NavBar extends KComponent<NavBarProps> {
   };
   public render() {
     const {
-      children,
       className,
       style,
-      mode,
-      leftContent,
-      rightContent,
-      icon
+      mode
     } = this.props;
     const classString = classnames(
       {
@@ -30,12 +26,12 @@ class NavBar extends KComponent<NavBarProps> {
     return (
       <View className={classString} style={style}>
         <View className={`${prefixCls}__left`} onClick={this.onLeftClick}>
-          <Text className={`${prefixCls}__icon`}>{icon}</Text>
-          {leftContent}
+          <View className={`${prefixCls}__icon`}>{this.props.renderIcon}</View>
+          {this.props.renderLeftContent}
         </View>
-        <View className={`${prefixCls}__middle`}>{children}</View>
+        <View className={`${prefixCls}__middle`}>{this.props.children}</View>
         <View className={`${prefixCls}__right`} onClick={this.onRightClick}>
-          {rightContent}
+          {this.props.renderRightContent}
         </View>
       </View>
     );

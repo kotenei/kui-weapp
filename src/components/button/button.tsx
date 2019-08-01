@@ -13,7 +13,16 @@ class KButton extends KComponent<ButtonProps> {
   };
 
   public render() {
-    const { color, size, active, disabled, full, className, icon } = this.props;
+    const {
+      color,
+      size,
+      active,
+      disabled,
+      full,
+      className,
+      icon,
+      style
+    } = this.props;
     const classString = classnames(
       {
         [prefixCls]: true,
@@ -27,8 +36,8 @@ class KButton extends KComponent<ButtonProps> {
     );
 
     return (
-      <Button className={classString} disabled={disabled}>
-        {icon ? <KIcon type={icon} spin /> : null}
+      <Button className={classString} disabled={disabled} style={style}>
+        {icon ? <KIcon type={icon}  /> : null}
         {this.props.children}
       </Button>
     );

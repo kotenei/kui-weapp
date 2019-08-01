@@ -2,7 +2,7 @@
     box-sizing: border-box;
     margin-bottom: 35px;
     &-title {
-        padding-top: 35px;
+        // padding-top: 35px;
         padding-bottom: 15px;
         font-size: 14px;
         color: rgba(69, 90, 100, .6);
@@ -19,8 +19,9 @@
         }
     }
     &:first-child {
-        .app-block-title {
-            padding-top: 20px;
-        }
+        margin-top: 20px;
+        // .app-block-title {
+        //     padding-top: 20px;
+        // }
     }
 }

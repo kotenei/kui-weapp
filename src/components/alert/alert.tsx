@@ -58,7 +58,8 @@ class KAlert extends KComponent<AlertProps, AlertState> {
       closable,
       closeText,
       state,
-      className
+      className,
+      style
     } = this.props;
     const { closing, closed } = this.state;
 
@@ -73,7 +74,7 @@ class KAlert extends KComponent<AlertProps, AlertState> {
 
     return (
       !closed && (
-        <View className={classString}>
+        <View className={classString} style={style}>
           {this.renderIcon()}
           <View className={`${prefixCls}__content`}>
             <View className={`${prefixCls}__title`}>{title}</View>

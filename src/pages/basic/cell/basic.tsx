@@ -6,7 +6,7 @@ export default class Demo extends Component {
   render() {
     return (
       <KCellGroup border>
-        <KCell title="箭头方向" showArrow arrowDirection="up" />
+        <KCell  title="这是标题" value="描述文字"/>
         <KCell
           title="这是标题"
           value="默认显示icon"
@@ -15,8 +15,8 @@ export default class Demo extends Component {
         />
         <KCell title="箭头方向" showArrow arrowDirection="up" />
         <KCell title="自定义Icon" renderValue={<KIcon type="search" />} />
-        <KCell title="路由跳转" showArrow to="/pages/basic/layout/index" />
-        <KCell title="链接跳转" showArrow url="http://www.baidu.com" border={false} />
+        <KCell title="路由跳转" showArrow to="/pages/basic/layout/index" border={false}/>
+        {/* <KCell title="链接跳转" showArrow url="http://www.baidu.com" border={false} /> */}
       </KCellGroup>
     );
   }

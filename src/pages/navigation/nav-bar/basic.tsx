@@ -1,23 +1,26 @@
 import Taro, { Component } from "@tarojs/taro";
 import { View } from "@tarojs/components";
-import { KNavBar } from "kui-weapp";
+import { KNavBar, KIcon } from "kui-weapp";
 
 export default class Demo extends Component {
   render() {
     return (
       <View>
-        {/* <NavBar icon={<Icon type="left" />} rightContent={<Icon type="search" />}>
-          标题
-        </NavBar>
-        <br />
-        <NavBar
-          mode='dark'
-          icon={<Icon type="left" />}
-          leftContent="返回"
-          rightContent={<Icon type="search" />}
+        <KNavBar
+          renderIcon={<KIcon type="left" />}
+          renderRightContent={<KIcon type="search" />}
+          style={{marginBottom:'20px'}}
         >
           标题
-        </NavBar> */}
+        </KNavBar>
+        <KNavBar
+          mode="dark"
+          renderIcon={<KIcon type="left" />}
+          renderLeftContent={<View>返回</View>}
+          renderRightContent={<KIcon type="search" />}
+        >
+          标题
+        </KNavBar>
       </View>
     );
   }

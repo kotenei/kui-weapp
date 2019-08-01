@@ -12,7 +12,7 @@ class KLoading extends KComponent<LoadingProps> {
     vertical: false
   };
   public render() {
-    const { className, color, tip, vertical, size } = this.props;
+    const { className, color, tip, vertical, size, style } = this.props;
     const classString = classnames(
       {
         [prefixCls]: true,
@@ -23,7 +23,7 @@ class KLoading extends KComponent<LoadingProps> {
       className
     );
     return (
-      <View className={classString}>
+      <View className={classString} style={style}>
         <View className={`${prefixCls}__circle`}>
           <KIcon
             className={`${prefixCls}__icon`}

@@ -94,6 +94,10 @@ $icon-svg-height: 1em;
 $colors: (primary: $primary-color, info: $info-color, success: $success-color, warning: $warning-color, danger: $danger-color, );
 $sizes:(xs, sm, md, lg);
 
+
+// avatar
+$avatar-size-map: (lg: 48px, md: 32px, sm: 24px);
+
 // button
 $button-active-bgColor:#e6e6e6;
 $button-size-map: (xs: (padding: 4px 10px,

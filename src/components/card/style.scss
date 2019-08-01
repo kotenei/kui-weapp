@@ -6,6 +6,7 @@
     border-radius: $radius-base;
     background: $white-color;
     padding-bottom: 8px;
+    font-size: $font-size-base;
 
     @include bem-modifier('full') {
         border-left: none;

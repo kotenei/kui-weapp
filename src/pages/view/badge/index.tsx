@@ -2,19 +2,26 @@ import Taro, { Component } from "@tarojs/taro";
 import { View } from "@tarojs/components";
 import KBlock from "../../components/block/index";
 import Basic from "./basic";
+import Dot from "./dot";
 
-const prefixCls = "app-nav-bar";
+const prefixCls = "app-badge";
 
 export default class Page extends Component {
   config = {
-    navigationBarTitleText: "NavBar 导航栏"
+    navigationBarTitleText: "Badge 徽章"
   };
 
   render() {
     return (
       <View className={prefixCls}>
-        <KBlock title="基础用法" bodyPadding={false}>
-          <Basic />
+        <KBlock title="基础用法">
+          <View>
+            <Basic />
+          </View>
+
+          <View style={{ marginTop: "30px" }}>
+            <Dot />
+          </View>
         </KBlock>
       </View>
     );
