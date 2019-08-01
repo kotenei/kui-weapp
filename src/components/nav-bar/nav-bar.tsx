@@ -1,12 +1,12 @@
 import Taro from "@tarojs/taro";
-import { View, Text } from "@tarojs/components";
+import { View } from "@tarojs/components";
 import classnames from "classnames";
 import KComponent from "../../common/component";
 import { NavBarProps } from "./typing";
 
 const prefixCls = "k-navbar";
 
-class NavBar extends KComponent<NavBarProps> {
+class KNavBar extends KComponent<NavBarProps> {
   public static defaultProps = {
     mode: "light"
   };
@@ -50,4 +50,4 @@ class NavBar extends KComponent<NavBarProps> {
   };
 }
 
-export default NavBar;
+export default KNavBar;

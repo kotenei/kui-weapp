@@ -19,6 +19,8 @@ class App extends Component {
    */
   config: Config = {
     pages: [
+      'pages/navigation/tab-bar/index',
+
       'pages/index/index',
 
       'pages/basic/button/index',
@@ -30,6 +32,7 @@ class App extends Component {
       'pages/feedback/loading/index',
       
       'pages/navigation/nav-bar/index',
+      
 
       "pages/view/avatar/index",
       "pages/view/badge/index",

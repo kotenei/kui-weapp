@@ -46,7 +46,6 @@ class KBadge extends KComponent<BadgeProps> {
       },
       className
     );
-    console.log(style,'ff')
     return (
       <View className={classString} style={style}>
         {this.props.children}
