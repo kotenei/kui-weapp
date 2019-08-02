@@ -1,0 +1,23 @@
+@import '../../assets/styles/variables';
+@import '../../assets/styles/mixins';
+
+
+@include bem-block('divider') {
+    height: 1px;
+    margin: 0;
+    border: none;
+    flex-shrink: 0;
+    background-color: $border-color-base;
+
+    @include bem-modifier('vertical'){
+        height: 100%;
+        width: 1px;
+    }
+
+    @each $color,
+    $value in $colors {
+        @include bem-modifier($color) {
+            background: $value;
+        }
+    }
+}

@@ -35,7 +35,8 @@ class App extends Component {
       // 'pages/navigation/pagination/index',
       // 'pages/navigation/tab-bar/index',
 
-      "pages/view/avatar/index",
+      // "pages/view/avatar/index",
+      "pages/view/divider/index",
       // "pages/view/badge/index",
       // "pages/view/card/index",
     ],

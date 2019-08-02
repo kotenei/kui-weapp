@@ -8,6 +8,7 @@ export { default as KCardBody } from "./components/card/card-body";
 export { default as KCardFooter } from "./components/card/card-footer";
 export { default as KCell } from "./components/cell/cell";
 export { default as KCellGroup } from "./components/cell/cell-group";
+export { default as KDivider } from "./components/divider/divider";
 export { default as KIcon } from "./components/icon/icon";
 export { default as KRow } from "./components/layout/row";
 export { default as KCol } from "./components/layout/col";
@@ -16,4 +17,3 @@ export { default as KNavBar } from "./components/nav-bar/nav-bar";
 export { default as KPagination } from "./components/pagination/pagination";
 export { default as KTabBar } from "./components/tab-bar/tab-bar";
 export { default as KTabBarItem } from "./components/tab-bar/tab-bar-item";
-
