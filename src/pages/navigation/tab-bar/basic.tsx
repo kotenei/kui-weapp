@@ -17,14 +17,14 @@ export default class Demo extends Component {
       <View>
         <KTabBar>
           <KTabBarItem
-            id="1"
+            code="1"
             iconType="android"
             title="Android"
             selected={activeId === "1"}
             onChange={this.handleChange}
           />
           <KTabBarItem
-            id="2"
+            code="2"
             iconType="apple"
             title="Apple"
             dot
@@ -32,7 +32,7 @@ export default class Demo extends Component {
             onChange={this.handleChange}
           />
           <KTabBarItem
-            id="3"
+            code="3"
             iconType="weibo"
             title="weibo"
             badge={20}
@@ -40,7 +40,7 @@ export default class Demo extends Component {
             onChange={this.handleChange}
           />
           <KTabBarItem
-            id="4"
+            code="4"
             iconType="taobao"
             title="taobao"
             badge="new"

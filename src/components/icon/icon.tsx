@@ -10,14 +10,7 @@ export default class KIcon extends KComponent<IconProps> {
     prefixCls: "k-icon"
   };
   public render() {
-    const {
-      className,
-      color,
-      type,
-      style,
-      fontSize,
-      onClick
-    } = this.props;
+    const { className, color, type, style, fontSize, onClick } = this.props;
 
     const prefixCls = this.props.prefixCls || "k-icon";
 
@@ -25,14 +18,13 @@ export default class KIcon extends KComponent<IconProps> {
       {
         [prefixCls]: true,
         [`${prefixCls}-${type}`]: !!type,
-        [`${prefixCls}--${color}`]: !!color,
+        [`${prefixCls}--${color}`]: !!color
       },
       className
     );
 
-
     const _style = {
-      fontSize,
+      fontSize: `${fontSize}px`,
       ...style
     };
     return <Text className={classString} style={_style} onClick={onClick} />;

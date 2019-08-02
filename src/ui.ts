@@ -13,6 +13,7 @@ export { default as KRow } from "./components/layout/row";
 export { default as KCol } from "./components/layout/col";
 export { default as KLoading } from "./components/loading/loading";
 export { default as KNavBar } from "./components/nav-bar/nav-bar";
+export { default as KPagination } from "./components/pagination/pagination";
 export { default as KTabBar } from "./components/tab-bar/tab-bar";
 export { default as KTabBarItem } from "./components/tab-bar/tab-bar-item";
 

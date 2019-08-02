@@ -7,11 +7,11 @@ export interface TabBarState {
 }
 
 export interface TabBarItemProps extends KUI.BaseProps {
-  id?: string;
+  code?: string;
   badge?: number | string;
   dot?: boolean;
   iconType:  string;
   selected?: boolean;
   title?: string;
-  onChange?: (id?: string) => void;
+  onChange?: (code?: string) => void;
 }

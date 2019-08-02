@@ -19,24 +19,25 @@ class App extends Component {
    */
   config: Config = {
     pages: [
-      'pages/navigation/tab-bar/index',
-
-      'pages/index/index',
-
-      'pages/basic/button/index',
-      "pages/basic/cell/index",
-      'pages/basic/icon/index',
-      "pages/basic/layout/index",
-
-      'pages/feedback/alert/index',
-      'pages/feedback/loading/index',
       
-      'pages/navigation/nav-bar/index',
+
+      // 'pages/index/index',
+
+      // 'pages/basic/button/index',
+      // "pages/basic/cell/index",
+      // 'pages/basic/icon/index',
+      // "pages/basic/layout/index",
+
+      // 'pages/feedback/alert/index',
+      // 'pages/feedback/loading/index',
       
+      // 'pages/navigation/nav-bar/index',
+      // 'pages/navigation/pagination/index',
+      // 'pages/navigation/tab-bar/index',
 
       "pages/view/avatar/index",
-      "pages/view/badge/index",
-      "pages/view/card/index",
+      // "pages/view/badge/index",
+      // "pages/view/card/index",
     ],
     window: {
       backgroundTextStyle: "light",

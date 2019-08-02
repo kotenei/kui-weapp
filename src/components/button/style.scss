@@ -19,6 +19,11 @@
     color: $text-color;
     line-height: $line-height-zh;
     align-items: center;
+    overflow: hidden;
+
+    &::after {
+        border: none;
+    }
 
     @each $color,
     $value in $colors {
