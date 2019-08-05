@@ -5,7 +5,7 @@ import KComponent from "../../common/component";
 import { LoadMoreProps } from "./typing";
 import KLoading from "../loading/loading";
 
-const prefixCls = "k-loadmore";
+const prefixCls = "k-load-more";
 
 export default class KLoadMore extends KComponent<LoadMoreProps> {
   public static defaultProps = {
@@ -28,6 +28,7 @@ export default class KLoadMore extends KComponent<LoadMoreProps> {
         <View className={`${prefixCls}__tip`}>
           {tip}
           {this.props.renderTip}
+          {!loading && !tip && <View className={`${prefixCls}__dot`} />}
         </View>
       </View>
     );

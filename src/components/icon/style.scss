@@ -6,6 +6,7 @@
     text-align: center;
     margin: 0 4px;
     font-size: inherit;
+    vertical-align: middle;
 
     @each $color,
     $value in $colors {

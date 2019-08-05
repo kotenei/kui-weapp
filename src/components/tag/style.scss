@@ -1,0 +1,42 @@
+@import '../../assets/styles/variables';
+@import '../../assets/styles/mixins';
+
+@include bem-block('tag') {
+    display: inline-block;
+    padding: 4px 6px;
+    line-height: 1;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    border-radius: $radius-base;
+    cursor: pointer;
+    margin: 0 8px 8px 0;
+    background: #f3f3f3;
+    border: $border-width-base $border-style-base #e3e8ee;
+    transition: opacity .3s ease;
+
+    @include text-color(#657180);
+  
+    @each $color, $value in $colors {
+      @include bem-modifier($color) {
+        background: $value;
+        border-color: $value;
+        @include text-color(#fff);
+        &.#{$namespace}-tag--line {
+          @include text-color($value);
+        }
+      }
+    }
+
+    @include bem-element('text'){
+        vertical-align: middle;
+    }
+  
+    @include bem-modifier('line') {
+      background: transparent;
+    }
+
+    @include bem-modifier('closing'){
+        opacity: 0;
+    }
+  }

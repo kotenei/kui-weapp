@@ -23,6 +23,7 @@
             @include element('loading__icon') {
                 font-size: map-get($value, 'fontSize')
             }
+
         }
     }
 
@@ -43,7 +44,7 @@
         // max-width: 100%;
         // max-height: 100%;
         vertical-align: middle;
-        font-size: 32px;
+        
     }
 
     @include bem-element('tip') {
@@ -53,6 +54,11 @@
     }
 
     @include bem-element('icon') {
+        // position: absolute;
+        // left: 50%;
+        // top: 50%;
+        // font-size: 32px;
+        // transform: translate(-50%, -50%);
         animation: loadingCircle 1s infinite linear;
     }
 }

@@ -19,8 +19,6 @@ class App extends Component {
    */
   config: Config = {
     pages: [
-      
-
       // 'pages/index/index',
 
       // 'pages/basic/button/index',
@@ -30,15 +28,19 @@ class App extends Component {
 
       // 'pages/feedback/alert/index',
       // 'pages/feedback/loading/index',
-      
+      "pages/feedback/progress/index"
+
       // 'pages/navigation/nav-bar/index',
       // 'pages/navigation/pagination/index',
       // 'pages/navigation/tab-bar/index',
 
       // "pages/view/avatar/index",
-      "pages/view/divider/index",
       // "pages/view/badge/index",
       // "pages/view/card/index",
+      // "pages/view/divider/index",
+      // "pages/view/load-more/index",
+      // "pages/view/tag/index",
+      // "pages/view/timeline/index"
     ],
     window: {
       backgroundTextStyle: "light",

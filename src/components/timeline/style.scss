@@ -1,0 +1,69 @@
+@import '../../assets/styles/variables';
+@import '../../assets/styles/mixins';
+
+@include bem-block('timeline') {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+@include bem-block('timeline-item') {
+    list-style: none;
+    margin: 0;
+    position: relative;
+    padding: 0 0 12px;
+
+    @include bem-element('tail') {
+        position: absolute;
+        top: 0;
+        height: 100%;
+        left: 8px;
+        width: 1px;
+        background: #E5E5E5;
+
+        @include bem-modifier('last'){
+            display: none;
+        }
+    }
+
+    @include bem-element('head') {
+        position: absolute;
+        width: 14px;
+        height: 14px;
+        background-color: $white-color;
+        border-radius: 50%;
+        border: 2px $border-style-base transparent;
+        margin-top: 1px;
+
+        @each $color,
+        $value in $colors {
+            @include bem-modifier($color) {
+                border-color: $value;
+            }
+        }
+
+        @include bem-modifier('dot') {
+            text-align: center;
+            width: 40px;
+            left: -12px;
+            line-height: 1;
+            margin-top: 9px;
+            border: 0;
+            height: auto;
+            border-radius: 0;
+            padding: 3px 0;
+            transform: translateY(-50%);
+            background: transparent;
+
+            @include element('icon'){
+                font-size: 20px;
+            }
+        }
+    }
+
+    @include bem-element('content') {
+        position: relative;
+        padding: 0 0 10px 24px;
+        top: 0px;
+    }
+}
