@@ -81,7 +81,7 @@
     @include bem-element('text') {
         vertical-align: middle;
         display: inline-block;
-        margin-left: 8px;
+        margin-left: 6px;
     }
 
     @include bem-element('circle') {

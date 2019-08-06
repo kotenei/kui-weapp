@@ -10,35 +10,19 @@ interface ProgressLineProps extends ProgressProps {
 }
 
 class KProgressLine extends KComponent<ProgressLineProps> {
-  public renderIcon() {
-    const { status, percent } = this.props;
-    if (status) {
-      if (status === "success") {
-        if (percent !== undefined) {
-          if (percent >= 100) {
-            return <KIcon type="check-circle" color="primary" />;
-          }
-          return <View>{percent}%</View>;
-        }
-      }
-      if (status === "error") {
-        return <KIcon type="close-circle" color="danger" />;
-      }
-    }
-    return <View>{percent}%</View>;
-  }
   public renderText() {
     const {
       prefixCls,
       textInside,
       showText,
-      indeterminate
+      indeterminate,
+      percent
     } = this.props;
     if (textInside || !showText || indeterminate) {
       return null;
     }
 
-    return <Text className={`${prefixCls}__text`}>{this.renderIcon()}</Text>;
+    return <View className={`${prefixCls}__text`}>{`${percent}%`}</View>;
   }
   public renderInner() {
     const {

@@ -28,7 +28,7 @@ class App extends Component {
 
       // 'pages/feedback/alert/index',
       // 'pages/feedback/loading/index',
-      "pages/feedback/progress/index"
+      // "pages/feedback/progress/index"
 
       // 'pages/navigation/nav-bar/index',
       // 'pages/navigation/pagination/index',
@@ -37,6 +37,7 @@ class App extends Component {
       // "pages/view/avatar/index",
       // "pages/view/badge/index",
       // "pages/view/card/index",
+      "pages/view/collapse/index",
       // "pages/view/divider/index",
       // "pages/view/load-more/index",
       // "pages/view/tag/index",
