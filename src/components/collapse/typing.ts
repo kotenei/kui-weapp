@@ -1,20 +1,35 @@
 export interface CollapseProps extends KUI.BaseProps {
-  activeIds?: string[];
-  defaultActiveIds?: string[];
+  activeCodes?: string[];
+  defaultActiveCodes?: string[];
   accordion?: boolean;
-  onChange?: (id: string) => void;
+  data?: CollapseData[];
+  onChange?: (code: string) => void;
 }
 
 export interface CollapseState {
-  activeIds?: string[];
+  activeCodes?: string[];
 }
 
 export interface CollapsePanelProps extends KUI.BaseProps {
   border?: boolean;
-  id: string;
-  icon?: React.ReactNode | string;
-  header?: React.ReactNode | string;
-  activeIds?: string[];
+  code: string;
+  iconType?: string;
+  header?: string;
+  renderHeader?: React.ReactNode;
+  last?: boolean;
+  open?: boolean;
   disabled?: boolean;
-  onClick?: (id: string) => void;
+  onClick?: (code: string) => void;
+}
+
+export interface CollapsePanelState {
+  height?: any;
+}
+
+export interface CollapseData {
+  code: string;
+  header?: string;
+  disabled?: boolean;
+  iconType?: string;
+  renderContent?: React.ReactNode;
 }

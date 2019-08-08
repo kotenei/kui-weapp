@@ -1,0 +1,47 @@
+@import '../../assets/styles/variables';
+@import '../../assets/styles/mixins';
+
+@include bem-block('collapse-panel') {
+    background: $white-color;
+
+    @include bem-element('header') {
+        border-bottom: none;
+        cursor: pointer;
+
+        @include bem-modifier('disabled') {
+            @include text-color($disabled-color);
+
+            @include element('cell-middle__title') {
+                @include text-color($disabled-color);
+            }
+        }
+
+        &:after {
+            content: '';
+            display: none !important;
+        }
+    }
+
+    @include bem-element('body') {
+        overflow: hidden;
+        transition: height .3s ease-in-out;
+        color: $text-color;
+        // &--opened{
+        //     height: 100px;
+        // }
+    }
+
+    @include bem-element('inner') {
+        padding: 10px 15px;
+        border-top: $border-width-base $border-style-base $border-color-base;
+    }
+
+    @include bem-modifier('border') {
+        border-top: $border-width-base $border-style-base $border-color-base;
+
+        &.#{$namespace}-collapse-panel--last{
+            border-bottom:  $border-width-base $border-style-base $border-color-base;
+        }
+    }
+
+}

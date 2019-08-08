@@ -1,3 +1,6 @@
+import Taro from "@tarojs/taro";
+import { execObject, SelectorQuery } from "@tarojs/taro/types/index";
+
 export const uuid = (len = 8, radix = 16): string => {
   const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz".split(
     ""
@@ -29,4 +32,30 @@ export const uuid = (len = 8, radix = 16): string => {
   }
 
   return value.join("");
+};
+
+export const delay = (delayTime = 500) => {
+  return new Promise(resolve => {
+    setTimeout(() => {
+      resolve();
+    }, delayTime);
+  });
+};
+
+export const querySelector = (
+  scope,
+  selectorStr: string,
+  delayTime = 500
+): Promise<Array<execObject>> => {
+  const selector: SelectorQuery = Taro.createSelectorQuery().in(scope);
+  return new Promise(resolve => {
+    delay(delayTime).then(() => {
+      selector
+        .select(selectorStr)
+        .boundingClientRect()
+        .exec((res: Array<execObject>) => {
+          resolve(res);
+        });
+    });
+  });
 };

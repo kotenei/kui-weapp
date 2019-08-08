@@ -2,75 +2,80 @@ import Taro from "@tarojs/taro";
 import { View } from "@tarojs/components";
 import classnames from "classnames";
 import KComponent from "../../common/component";
+import KCollapsePanel from "./collapse-panel";
 import { CollapseProps, CollapseState } from "./typing";
-import KIcon from "../icon/icon";
 
 const prefixCls = "k-collapse";
 
 class KCollapse extends KComponent<CollapseProps, CollapseState> {
   public static defaultProps = {
-    defaultActiveIds: []
+    defaultActiveCodes: [],
+    data: []
   };
-
-  //   public static getDerivedStateFromProps(nextProps, nextState) {
-  //     if ('activeIds' in nextProps) {
-  //       return {
-  //         activeIds: nextProps.activeIds,
-  //       };
-  //     }
-  //     return null;
-  //   }
-
   public state = {
-    activeIds: this.props.activeIds || this.props.defaultActiveIds
+    activeCodes: this.props.activeCodes || this.props.defaultActiveCodes
   };
+
+  renderData() {
+    const { data } = this.props;
+    const { activeCodes } = this.state;
+
+    let content =
+      data &&
+      data.map((item, index) => {
+        return (
+          <KCollapsePanel
+            key={item.code}
+            code={item.code}
+            disabled={item.disabled}
+            header={item.header}
+            iconType={item.iconType}
+            last={data.length - 1 === index}
+            open={activeCodes && activeCodes.indexOf(item.code) > -1}
+            onClick={this.onPanelClick}
+          >
+            {item.renderContent}
+          </KCollapsePanel>
+        );
+      });
+    return content;
+  }
+
   public render() {
-    // const { className } = this.props;
-    // const { activeIds } = this.state;
-    // const classString = classnames(
-    //   {
-    //     [prefixCls]: true
-    //   },
-    //   className
-    // );
-    console.log(this.parent)
+    const { className, style, data } = this.props;
+    const classString = classnames(
+      {
+        [prefixCls]: true
+      },
+      className
+    );
     return (
-      <View >
-        {/* {React.Children.map(children, (child: any, index) => {
-          if (!child || !child.type || child.type.displayName !== 'CollapsePanel') {
-            return null;
-          }
-          return React.cloneElement(child, {
-            ...child.props,
-            activeIds,
-            onClick: this.handleChange,
-          });
-        })} */}
-        {this.props.children}
+      <View className={classString} style={style}>
+        {data && data.length > 0 ? this.renderData() : this.props.children}
       </View>
     );
   }
-  //   private handleChange = id => {
-  //     const { onChange, accordion } = this.props;
-  //     const { activeIds } = this.state;
-  //     const newActiveIds = accordion ? [] : activeIds ? [...activeIds] : [];
 
-  //     if (!('activeIds' in this.props)) {
-  //       const index = activeIds ? activeIds.indexOf(id) : -1;
-  //       if (index === -1) {
-  //         newActiveIds.push(id);
-  //       } else {
-  //         newActiveIds.splice(index, 1);
-  //       }
-  //       this.setState({
-  //         activeIds: newActiveIds,
-  //       });
-  //     }
+  private onPanelClick = id => {
+    const { onChange, accordion } = this.props;
+    const { activeCodes } = this.state;
+    const newactiveCodes = accordion ? [] : activeCodes ? [...activeCodes] : [];
+    if (!("activeCodes" in this.props)) {
+      const index = activeCodes ? activeCodes.indexOf(id) : -1;
+      if (index === -1) {
+        newactiveCodes.push(id);
+      } else {
+        newactiveCodes.splice(index, 1);
+      }
+      this.setState({
+        activeCodes: newactiveCodes
+      });
+    }
 
-  //     if (onChange) {
-  //       onChange(id);
-  //     }
-  //   };
+    if (onChange) {
+      onChange(id);
+    }
+  };
 }
 
 export default KCollapse;

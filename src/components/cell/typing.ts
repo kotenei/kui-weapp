@@ -2,6 +2,7 @@ export interface CellProps extends KUI.BaseProps {
   border?: boolean;
   disabled?: boolean;
   title?: string | React.ReactNode;
+  renderTitle?: React.ReactNode;
   value?: string | React.ReactNode;
   renderValue?: string | React.ReactNode;
   label?: string | React.ReactNode;

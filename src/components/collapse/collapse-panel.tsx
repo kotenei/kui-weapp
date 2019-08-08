@@ -2,114 +2,111 @@ import Taro from "@tarojs/taro";
 import { View } from "@tarojs/components";
 import classnames from "classnames";
 import KComponent from "../../common/component";
-import { CollapsePanelProps } from "./typing";
+import { CollapsePanelProps, CollapsePanelState } from "./typing";
 import KCell from "../cell/cell";
 import KIcon from "../icon/icon";
+import { querySelector } from "../../common/utils";
 
 const prefixCls = "k-collapse-panel";
 
-class KCollapsePanel extends KComponent<CollapsePanelProps> {
+class KCollapsePanel extends KComponent<
+  CollapsePanelProps,
+  CollapsePanelState
+> {
   public static defaultProps = {
-    activeIds: [],
     disabled: false,
-    border: true
+    border: true,
+    open: false,
+    last: false
   };
-  private contentElement: HTMLDivElement;
-  // public renderBody(isShow) {
-  //   const { children } = this.props;
-  //   return (
-  //     <Transition
-  //       in={isShow}
-  //       timeout={300}
-  //       appear
-  //       onEnter={this.handleEnter}
-  //       onEntering={this.handleEntering}
-  //       onEntered={this.handleEntered}
-  //       onExit={this.handleExit}
-  //       onExiting={this.handleExiting}
-  //     >
-  //       {state => {
-  //         return (
-  //           <View
-  //             className={classnames({
-  //               [`${prefixCls}__body`]: true,
-  //             })}
-  //             ref={this.handleRef}
-  //           >
-  //             <View className={`${prefixCls}__inner`}>{children}</View>
-  //           </View>
-  //         );
-  //       }}
-  //     </Transition>
-  //   );
-  // }
-  public render() {
-    const { activeIds, id, header, disabled, icon, border } = this.props;
-    const isShow = activeIds ? activeIds.indexOf(id) > -1 : false;
-    const classString = classnames({
-      [prefixCls]: true,
-      [`${prefixCls}--border`]: !!border
-    });
-    return (
-      <View className={classString}>
-        {/* <KCell
-            className={classnames({
-              [`${prefixCls}__header`]: true,
-              [`${prefixCls}__header--disabled`]: disabled,
-            })}
-            onClick={this.handleClick}
-            title={header}
-            showArrow={!icon}
-            value={icon ? typeof icon === 'string' ? <KIcon type={icon} /> : icon : null}
-            arrowDirection={isShow ? 'down' : 'right'}
-          /> */}
 
-        {/* {this.renderBody(isShow)} */}
-        {this.props.children}
+  public constructor(props) {
+    super(props);
+    this.state = {
+      height: 0
+    };
+  }
+
+  private _isCompleted: boolean = false;
+  private _orgHeight: number = 0;
+
+  public componentWillMount() {
+    this.toggle();
+  }
+
+  public componentWillReceiveProps(nextProps) {
+    if (nextProps.open !== this.props.open) {
+      this.toggle();
+    }
+  }
+
+  public renderBody() {
+    const { height } = this.state;
+    const style = {
+      height: this._isCompleted ? height + "px" : ""
+    };
+    return (
+      <View
+        className={classnames({
+          [`${prefixCls}__body`]: true
+        })}
+        style={style}
+      >
+        <View className={`${prefixCls}__inner`}>{this.props.children}</View>
       </View>
     );
   }
 
-  private handleClick = () => {
-    const { onClick, id, disabled } = this.props;
+  public render() {
+    const { header, disabled, iconType, border, open, last } = this.props;
+    const classString = classnames({
+      [prefixCls]: true,
+      [`${prefixCls}--border`]: !!border,
+      [`${prefixCls}--last`]:  !!last
+    });
+    let icon = iconType && <KIcon type={iconType} />;
+    return (
+      <View className={classString}>
+        <KCell
+          className={classnames({
+            [`${prefixCls}__header`]: true,
+            [`${prefixCls}__header--disabled`]: disabled
+          })}
+          onClick={this.onClick}
+          title={header}
+          showArrow={!iconType}
+          renderValue={icon}
+          arrowDirection={open ? "down" : "right"}
+        />
+
+        {this.renderBody()}
+      </View>
+    );
+  }
+
+  private onClick = () => {
+    const { onClick, code, disabled } = this.props;
     if (disabled) {
       return;
     }
     if (onClick) {
-      onClick(id);
+      onClick(code);
     }
   };
 
-  private handleRef = (element: HTMLDivElement) => {
-    this.contentElement = element;
-  };
-
-  private handleEnter = (node, isAppearing) => {
-    node.style.height = "0px";
-  };
-
-  private handleEntering = (node, isAppearing) => {
-    node.style.height = this.getContentHeight() + "px";
-  };
-
-  private handleEntered = (node, isAppearing) => {
-    node.style.height = "auto";
-  };
-
-  private handleExit = node => {
-    node.style.height = this.getContentHeight() + "px";
-    // tslint:disable-next-line:no-unused-expression
-    node.offsetHeight;
-  };
-
-  private handleExiting = node => {
-    node.style.height = "0px";
-  };
-
-  private getContentHeight = (): number => {
-    const el = this.contentElement;
-    return el ? el.offsetHeight || el.clientHeight || el.scrollHeight : 0;
-  };
+  private toggle() {
+    querySelector(this.$scope, `.${prefixCls}__body`, 0).then(rect => {
+      const { open } = this.props;
+      const height = parseInt(rect[0].height);
+      if (!this._orgHeight) {
+        this._orgHeight = height;
+        this._isCompleted = true;
+      }
+      this.setState({
+        height: open ? this._orgHeight : 0
+      });
+    });
+  }
 }
 
 export default KCollapsePanel;
