@@ -29,8 +29,6 @@ class KTabBarItem extends KComponent<TabBarItemProps> {
       className
     );
 
-    console.log(this.props);
-
     return (
       <View className={classString} style={style} onClick={this.onItemClick}>
         <View className={`${prefixCls}__icon`}>

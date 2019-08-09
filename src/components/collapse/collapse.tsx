@@ -34,7 +34,7 @@ class KCollapse extends KComponent<CollapseProps, CollapseState> {
             open={activeCodes && activeCodes.indexOf(item.code) > -1}
             onClick={this.onPanelClick}
           >
-            {item.renderContent}
+            {item.content}
           </KCollapsePanel>
         );
       });

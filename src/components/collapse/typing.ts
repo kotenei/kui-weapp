@@ -31,5 +31,5 @@ export interface CollapseData {
   header?: string;
   disabled?: boolean;
   iconType?: string;
-  renderContent?: React.ReactNode;
+  content?: string;
 }
