@@ -6,6 +6,7 @@ import { DrawerProps, DrawerState } from "./typing";
 import KMask from "../mask/mask";
 
 const prefixCls = "k-drawer";
+const DELAY = 300;
 
 class KDrawer extends KComponent<DrawerProps, DrawerState> {
   public static defaultProps = {
@@ -18,25 +19,26 @@ class KDrawer extends KComponent<DrawerProps, DrawerState> {
   constructor(props) {
     super(props);
     this.state = {
-      open: props.open
+      enter: false,
+      enterActive: false
     };
   }
 
   public componentWillReceiveProps(nextProps, nextState) {
-    if (nextProps.open !== this.state.open) {
-      this.setState({
-        open: nextProps.open
-      });
+    if (nextProps.open !== this.props.open) {
+      this.toggle(nextProps.open);
     }
   }
 
   public render() {
-    const { className, position, style, onMaskClick, mask } = this.props;
-    const { open } = this.state;
+    const { className, position, style, onMaskClick, mask, open } = this.props;
+    const { enter, enterActive } = this.state;
     const classString = classnames(
       {
         [prefixCls]: true,
-        [`${prefixCls}--${position}`]: true
+        [`${prefixCls}__${position}`]: true,
+        [`${prefixCls}__${position}--enter`]: enter,
+        [`${prefixCls}__${position}--enterActive`]: enterActive
       },
       className
     );
@@ -49,6 +51,44 @@ class KDrawer extends KComponent<DrawerProps, DrawerState> {
         {mask && <KMask show={open} onClick={onMaskClick} />}
       </View>
     );
+  }
+
+  private toggle(open = this.props.open) {
+    if (open) {
+      // this.setState(
+      //   {
+      //     enter: true
+      //   },
+      //   () => {
+      //     setTimeout(() => {
+      //       this.setState({
+      //         enterActive: true
+      //       });
+      //     }, DELAY);
+      //   }
+      // );
+      setTimeout(() => {
+        this.setState({
+          enter: true
+        });
+      }, DELAY);
+    } else {
+      this.setState({
+        enter: false
+      });
+      // this.setState(
+      //   {
+      //     enterActive: false
+      //   },
+      //   () => {
+      //     setTimeout(() => {
+      //       this.setState({
+      //         enter: true
+      //       });
+      //     }, DELAY);
+      //   }
+      // );
+    }
   }
 }
 

@@ -1,2 +1,67 @@
 @import '../../assets/styles/variables';
 @import '../../assets/styles/mixins';
+
+@include bem-block('drawer') {
+    position: fixed;
+    z-index: $zindex-drawer;
+    transition: transform .3s ease, visibility .3s ease;
+    background: #fff;
+    visibility: hidden;
+
+    @include bem-element('left') {
+        left: 0;
+        top: 0;
+        bottom: 0;
+        width: 80%;
+        height: 100%;
+        transform: translateX(-100%);
+
+        @include bem-modifier('enter') {
+            transform: translateX(0%);
+            visibility: visible;
+        }
+
+    }
+
+    @include bem-element('right') {
+        right: 0;
+        top: 0;
+        bottom: 0;
+        width: 80%;
+        height: 100%;
+        transform: translateX(100%);
+
+
+        @include bem-modifier('enter') {
+            transform: translateX(0%);
+            visibility: visible;
+        }
+    }
+
+    @include bem-element('bottom') {
+        bottom: 0;
+        left: 0;
+        right: 0;
+        width: 100%;
+        transform: translateY(100%);
+
+        @include bem-modifier('enter') {
+            transform: translateY(0%);
+            visibility: visible;
+        }
+    }
+
+    @include bem-element('top') {
+        top: 0;
+        left: 0;
+        right: 0;
+        width: 100%;
+        transform: translateY(-100%);
+
+
+        @include bem-modifier('enter') {
+            transform: translateY(0%);
+            visibility: visible;
+        }
+    }
+}

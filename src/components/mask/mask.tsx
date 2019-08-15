@@ -15,42 +15,24 @@ class KMask extends KComponent<MaskProps> {
 
   constructor(props) {
     super(props);
-    this.state = {
-      closing: false,
-      closed: false
-    };
-  }
-
-  public componentWillReceiveProps(nextProps, nextState) {
-    if (this.props.show !== nextProps.show) {
-      this.toggle(nextProps.show);
-    }
   }
 
   public render() {
-    const { className, style, show, zIndex, timeout } = this.props;
+    const { className, style, show, zIndex } = this.props;
     const _style = { zIndex, ...style };
     return (
-      show && (
-        <View
-          className={classnames(
-            {
-              [prefixCls]: true
-            },
-            className
-          )}
-          style={_style}
-        />
-      )
+      <View
+        className={classnames(
+          {
+            [prefixCls]: true,
+            [`${prefixCls}--show`]: show
+          },
+          className
+        )}
+        style={_style}
+      />
     );
   }
-
-  private toggle = (show = this.props) => {
-    const { timeout } = this.props;
-    if (show) {
-    } else {
-    }
-  };
 }
 
 export default KMask;
