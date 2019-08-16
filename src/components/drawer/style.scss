@@ -4,9 +4,8 @@
 @include bem-block('drawer') {
     position: fixed;
     z-index: $zindex-drawer;
-    transition: transform .3s ease, visibility .3s ease;
     background: #fff;
-    visibility: hidden;
+    transition: transform .3s ease, visibility .3s ease;
 
     @include bem-element('left') {
         left: 0;
@@ -14,11 +13,18 @@
         bottom: 0;
         width: 80%;
         height: 100%;
-        transform: translateX(-100%);
 
-        @include bem-modifier('enter') {
+
+        &-enter {
+            transform: translateX(-100%);
+        }
+
+        &-enter-active {
             transform: translateX(0%);
-            visibility: visible;
+        }
+
+        &-exit-active {
+            transform: translateX(-100%);
         }
 
     }
@@ -29,12 +35,17 @@
         bottom: 0;
         width: 80%;
         height: 100%;
-        transform: translateX(100%);
 
+        &-enter {
+            transform: translateX(100%);
+        }
 
-        @include bem-modifier('enter') {
+        &-enter-active {
             transform: translateX(0%);
-            visibility: visible;
+        }
+
+        &-exit-active {
+            transform: translateX(100%);
         }
     }
 
@@ -42,12 +53,17 @@
         bottom: 0;
         left: 0;
         right: 0;
-        width: 100%;
-        transform: translateY(100%);
 
-        @include bem-modifier('enter') {
+        &-enter {
+            transform: translateY(100%);
+        }
+
+        &-enter-active {
             transform: translateY(0%);
-            visibility: visible;
+        }
+
+        &-exit-active {
+            transform: translateY(100%);
         }
     }
 
@@ -56,12 +72,17 @@
         left: 0;
         right: 0;
         width: 100%;
-        transform: translateY(-100%);
 
+        &-enter {
+            transform: translateY(-100%);
+        }
 
-        @include bem-modifier('enter') {
+        &-enter-active {
             transform: translateY(0%);
-            visibility: visible;
+        }
+
+        &-exit-active {
+            transform: translateY(-100%);
         }
     }
 }

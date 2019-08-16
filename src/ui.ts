@@ -26,3 +26,4 @@ export { default as KTabBarItem } from "./components/tab-bar/tab-bar-item";
 export { default as KTag } from "./components/tag/tag";
 export { default as KTimeline } from "./components/timeline/timeline";
 export { default as KTimelineItem } from "./components/timeline/timeline-item";
+export { default as KTransition } from './components/transition/transition';

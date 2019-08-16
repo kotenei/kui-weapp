@@ -7,6 +7,5 @@ export interface DrawerProps extends KUI.BaseProps {
 }
 
 export interface DrawerState {
-  enter: boolean;
-  enterActive: boolean;
+
 }

@@ -47,9 +47,14 @@ export default class Demo extends Component {
           底部弹出
         </KButton>
 
-        <KDrawer position={position} open={open} onMaskClick={this.handleClose}>
+        <KDrawer
+          position={position}
+          delay={300}
+          open={open}
+          onMaskClick={this.handleClose}
+        >
           <View style={{ margin: "20px" }}>
-            <View style={{marginBottom:'20px'}}>这里是内容</View>
+            <View style={{ marginBottom: "20px" }}>这里是内容</View>
             <KButton onClick={this.handleClose}>点击关闭</KButton>
           </View>
         </KDrawer>
