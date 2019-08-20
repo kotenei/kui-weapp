@@ -1,3 +1,4 @@
+export { default as KActionSheet } from './components/action-sheet/action-sheet';
 export { default as KAlert } from "./components/alert/alert";
 export { default as KAvatar } from "./components/avatar/avatar";
 export { default as KBadge } from "./components/badge/badge";

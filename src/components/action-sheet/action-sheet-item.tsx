@@ -4,6 +4,7 @@ import classnames from "classnames";
 import KComponent from "../../common/component";
 import { ActionSheetItemProps } from "./typing";
 import KIcon from '../icon/icon';
+import KLoading from '../loading/loading';
 
 class KActionSheetItem extends KComponent<ActionSheetItemProps> {
   public render() {
@@ -19,7 +20,7 @@ class KActionSheetItem extends KComponent<ActionSheetItemProps> {
         {text && !loading && (
           <View className={`${prefixCls}__text`}>{text}</View>
         )}
-        {loading && <KIcon className={`${prefixCls}__loading`} type="loading" />}
+        {loading && <KLoading className={`${prefixCls}__loading`}/>}
       </View>
     );
   }

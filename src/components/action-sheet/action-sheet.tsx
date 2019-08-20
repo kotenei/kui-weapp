@@ -19,9 +19,8 @@ class KActionSheet extends KComponent<ActionSheetProps, ActionSheetState> {
 
   public renderItems() {
     const { actions } = this.props;
-    let items = [];
     if (actions && actions.length > 0) {
-      actions.map((item: Action, index: number) => {
+      return actions.map((item: Action, index: number) => {
         return (
           <KActionSheetItem
             key={index}
@@ -35,7 +34,7 @@ class KActionSheet extends KComponent<ActionSheetProps, ActionSheetState> {
         );
       });
     }
-    return items;
+    return null;
   }
 
   public render() {
@@ -54,7 +53,7 @@ class KActionSheet extends KComponent<ActionSheetProps, ActionSheetState> {
       className
     );
     return (
-      <KDrawer position="bottom" open={show}>
+      <KDrawer position="bottom" open={show}  onMaskClick={this.onMaskClick}>
         <View className={classString} style={style}>
           {title && <View className={`${prefixCls}__header`}>{title}</View>}
           <View className={`${prefixCls}__content`}>
@@ -73,9 +72,27 @@ class KActionSheet extends KComponent<ActionSheetProps, ActionSheetState> {
     );
   }
 
-  private onCancel = () => {};
+  private onCancel = () => {
+    const { onCancel } = this.props;
+    if (onCancel) {
+      onCancel();
+    }
+  };
 
-  private onSelect = () => {};
+  private onMaskClick = () => {
+    const { maskClose } = this.props;
+    if (maskClose) {
+      this.onCancel();
+    }
+  };
+
+  private onSelect = index => {
+    const { onSelect, actions } = this.props;
+    const item = actions && actions[index];
+    if (onSelect && item) {
+      onSelect(item);
+    }
+  };
 }
 
 export default KActionSheet;

@@ -77,7 +77,7 @@ export default class Index extends Component {
       { title: "Tabs 标签页", name: "tabs" }
     ];
     const feedback = [
-      { title: "ActionSheet 动作面板", name: "actionsheet" },
+      { title: "ActionSheet 动作面板", name: "action-sheet" },
       { title: "Alert 警告提示", name: "alert" },
       { title: "Loading 加载", name: "loading" },
       { title: "Message 消息提示", name: "message" },
