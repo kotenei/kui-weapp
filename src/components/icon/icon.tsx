@@ -7,10 +7,19 @@ import { IconProps } from "./typing";
 export default class KIcon extends KComponent<IconProps> {
   public static displayName = "Icon";
   public static defaultProps = {
-    prefixCls: "k-icon"
+    prefixCls: "k-icon",
+    spin: false
   };
   public render() {
-    const { className, color, type, style, fontSize, onClick } = this.props;
+    const {
+      className,
+      color,
+      type,
+      style,
+      fontSize,
+      spin,
+      onClick
+    } = this.props;
 
     const prefixCls = this.props.prefixCls || "k-icon";
 
@@ -18,7 +27,8 @@ export default class KIcon extends KComponent<IconProps> {
       {
         [prefixCls]: true,
         [`${prefixCls}-${type}`]: !!type,
-        [`${prefixCls}--${color}`]: !!color
+        [`${prefixCls}--${color}`]: !!color,
+        [`${prefixCls}--spin`]: !!spin || type === "loading"
       },
       className
     );

@@ -6,7 +6,7 @@ export default class Demo extends Component {
     return (
       <div>
         <KButton icon="search">Search</KButton>
-        <KButton icon="reload">Loading</KButton>
+        <KButton icon="loading">Loading</KButton>
       </div>
     );
   }

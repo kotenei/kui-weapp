@@ -36,12 +36,24 @@ class KButton extends KComponent<ButtonProps> {
     );
 
     return (
-      <Button className={classString} disabled={disabled} style={style} onClick={this.props.onClick}>
-        {icon ? <KIcon type={icon}  /> : null}
+      <Button
+        className={classString}
+        disabled={disabled}
+        style={style}
+        onClick={this.onClick}
+      >
+        {icon ? <KIcon type={icon} /> : null}
         {this.props.children}
       </Button>
     );
   }
+
+  private onClick = e => {
+    const { onClick } = this.props;
+    if (onClick) {
+      onClick();
+    }
+  };
 }
 
 export default KButton;
