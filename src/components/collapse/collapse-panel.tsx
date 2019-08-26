@@ -62,7 +62,7 @@ class KCollapsePanel extends KComponent<
     const classString = classnames({
       [prefixCls]: true,
       [`${prefixCls}--border`]: !!border,
-      [`${prefixCls}--last`]:  !!last
+      [`${prefixCls}--last`]: !!last
     });
     let icon = iconType && <KIcon type={iconType} />;
     return (
@@ -95,7 +95,7 @@ class KCollapsePanel extends KComponent<
   };
 
   private toggle() {
-    querySelector(this.$scope, `.${prefixCls}__body`, 0).then(rect => {
+    querySelector(this.$scope, `.${prefixCls}__body`, 0).then((rect: any) => {
       const { open } = this.props;
       const height = parseInt(rect[0].height);
       if (!this._orgHeight) {

@@ -20,6 +20,7 @@ export { default as KLoadMore } from "./components/load-more/load-more";
 export { default as KLoading } from "./components/loading/loading";
 export { default as KMask } from './components/mask/mask';
 export { default as KNavBar } from "./components/nav-bar/nav-bar";
+export { default as KNoticeBar } from "./components/notice-bar/notice-bar";
 export { default as KPagination } from "./components/pagination/pagination";
 export { default as KProgress } from "./components/progress/progress";
 export { default as KTabBar } from "./components/tab-bar/tab-bar";

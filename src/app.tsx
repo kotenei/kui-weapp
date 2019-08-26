@@ -43,6 +43,7 @@ class App extends Component {
       "pages/view/collapse/index",
       "pages/view/divider/index",
       "pages/view/load-more/index",
+      "pages/view/notice-bar/index",
       "pages/view/tag/index",
       "pages/view/timeline/index"
     ],

@@ -37,6 +37,15 @@ export default class KIcon extends KComponent<IconProps> {
       fontSize: `${fontSize}px`,
       ...style
     };
-    return <Text className={classString} style={_style} onClick={onClick} />;
+    return (
+      <Text className={classString} style={_style} onClick={this.onClick} />
+    );
   }
+
+  private onClick = () => {
+    const { onClick } = this.props;
+    if (onClick) {
+      onClick();
+    }
+  };
 }

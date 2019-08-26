@@ -63,14 +63,14 @@ export default class Index extends Component {
       { title: "Divider 分隔符", name: "divider" },
       { title: "LazyLoad 图片懒加载", name: "lazyload" },
       { title: "LoadMore 加载更多", name: "load-more" },
-      { title: "NoticeBar 通告栏", name: "noticebar" },
+      { title: "NoticeBar 通告栏", name: "notice-bar" },
       { title: "Swipe 轮播", name: "swipe" },
       { title: "Tag 标签", name: "tag" },
       { title: "Timeline 时间轴", name: "timeline" }
     ];
     const navigation = [
       { title: "Drawer 抽屉", name: "drawer" },
-      { title: "NavBar 导航栏", name: "navbar" },
+      { title: "NavBar 导航栏", name: "nav-bar" },
       { title: "Pagination 分页", name: "pagination" },
       { title: "Steps 步骤条", name: "steps" },
       { title: "TabBar 标签栏", name: "tab-bar" },
