@@ -1,0 +1,270 @@
+@import '../../assets/styles/variables';
+@import '../../assets/styles/mixins';
+
+@mixin line($top, $bgColor) {
+    &::after {
+        content: '';
+        height: 1px;
+        width: 9999px;
+        background: $bgColor;
+        display: block;
+        position: absolute;
+        top: $top;
+        left: 100%;
+    }
+}
+
+@include bem-block('steps') {
+    @include bem-modifier('horizontal') {
+        display: flex;
+
+        @include element('steps__step') {
+            margin-right: 16px;
+
+            &:last-child {
+                @include element('steps__title') {
+                    &::after {
+                        content: none;
+                    }
+                }
+
+                @include element('steps__icon') {
+                    &::after {
+                        content: none;
+                    }
+                }
+            }
+
+            &--nextError {
+                @include element('steps__tail') {
+                    &::after {
+                        background: $danger-color !important;
+                    }
+                }
+            }
+        }
+
+        @include element('steps__title') {
+            @include line(11px, #e8e8e8);
+        }
+    }
+
+    @include bem-modifier('vertical') {
+        @include element('steps__step') {
+            display: block;
+            white-space: normal;
+
+            &:last-child {
+                @include element('steps__tail') {
+                    display: none;
+                }
+            }
+
+            @include element('steps__tail') {
+                top: 16px;
+                bottom: 16px;
+                position: absolute;
+                left: 11px;
+
+                @include line(11px, #e8e8e8);
+
+                &::after {
+                    left: auto;
+                    width: 1px;
+                    height: 100%;
+                }
+            }
+
+            @include element('steps__icon') {
+                margin-right: 16px;
+                float: left;
+            }
+
+            @include element('steps__content') {
+                overflow: hidden;
+                display: block;
+            }
+
+            @include element('steps__description') {
+                padding-bottom: 16px;
+                max-width: none;
+            }
+
+            &--nextError {
+                @include element('steps__tail') {
+                    &::after {
+                        background: $danger-color !important;
+                    }
+                }
+            }
+        }
+    }
+
+    @include bem-modifier('center') {
+        @include element('steps__step') {
+            white-space: normal;
+            margin-right: 0;
+            overflow: visible;
+            text-align: center;
+
+            &:last-child {
+                @include element('steps__tail') {
+                    display: none;
+                }
+            }
+        }
+
+        @include element('steps__tail') {
+            @include line(11px, #e8e8e8);
+
+            &::after {
+                left: calc(50% + 24px);
+                width: calc(100% - 48px);
+            }
+        }
+
+        @include element('steps__icon') {
+            text-align: center;
+            margin: 0;
+        }
+
+        @include element('steps__content') {
+            display: block;
+            text-align: center;
+        }
+
+        @include element('steps__title') {
+            padding-right: 0;
+
+            &:after {
+                content: none;
+            }
+        }
+
+        @include element('steps__description') {
+            max-width: none;
+            text-align: center;
+        }
+    }
+
+    @include bem-element('step') {
+        flex: 1;
+        position: relative;
+        overflow: hidden;
+        white-space: nowrap;
+        display: inline-block;
+
+        @include bem-modifier('finish') {
+            @include element('steps__tail') {
+                &::after {
+                    background: $primary-color !important;
+                }
+            }
+
+            @include element('steps__icon') {
+                border-color: $primary-color;
+                color: $primary-color;
+            }
+
+            @include element('steps__title') {
+                color: #666;
+
+                &:after {
+                    background: $primary-color;
+                }
+            }
+        }
+
+        @include bem-modifier('process') {
+            @include element('steps__icon') {
+                border-color: $primary-color;
+                color: #fff;
+                background: $primary-color;
+
+                &--customize {
+                    color: $primary-color;
+                }
+            }
+
+            @include element('steps__title') {
+                color: #666;
+            }
+
+            @include element('steps__description') {
+                color: #666;
+            }
+        }
+
+        @include bem-modifier('error') {
+            @include element('steps__icon') {
+                border-color: $danger-color;
+                color: $danger-color;
+
+                &--customize {
+                    color: $danger-color;
+                }
+            }
+
+            @include element('steps__title') {
+                color: $danger-color;
+            }
+
+            @include element('steps__description') {
+                color: $danger-color;
+            }
+        }
+    }
+
+    @include bem-element('tail') {
+        position: relative;
+    }
+
+    @include bem-element('content') {
+        display: inline-block;
+        vertical-align: top;
+        line-height: $line-height;
+    }
+
+    @include bem-element('title') {
+        line-height: 24px;
+        padding-right: 16px;
+        position: relative;
+        display: inline-block;
+        color: #999;
+    }
+
+    @include bem-element('description') {
+        max-width: 100px;
+        color: #999;
+        font-size: $font-size-caption-sm;
+    }
+
+    @include bem-element('icon') {
+        display: inline-block;
+        vertical-align: top;
+        width: 24px;
+        height: 24px;
+        line-height: 24px;
+        text-align: center;
+        border-radius: 50%;
+        border: $border-width-base $border-style-base #ccc;
+        color: #ccc;
+        margin-right: 8px;
+        position: relative;
+
+        @include element('icon') {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            margin: 0;
+            padding: 0;
+        }
+
+        @include bem-modifier('customize') {
+            background: none !important;
+            border: 0 !important;
+            font-size: 24px;
+        }
+    }
+}
