@@ -23,6 +23,8 @@ export { default as KNavBar } from "./components/nav-bar/nav-bar";
 export { default as KNoticeBar } from "./components/notice-bar/notice-bar";
 export { default as KPagination } from "./components/pagination/pagination";
 export { default as KProgress } from "./components/progress/progress";
+export { default as KSteps } from './components/steps/steps';
+export { default as KStep } from './components/steps/step';
 export { default as KTabBar } from "./components/tab-bar/tab-bar";
 export { default as KTabBarItem } from "./components/tab-bar/tab-bar-item";
 export { default as KTag } from "./components/tag/tag";

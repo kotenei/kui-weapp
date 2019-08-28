@@ -222,7 +222,7 @@
     @include bem-element('content') {
         display: inline-block;
         vertical-align: top;
-        line-height: $line-height;
+        line-height: $line-height-base;
     }
 
     @include bem-element('title') {
