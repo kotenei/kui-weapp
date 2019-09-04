@@ -5,7 +5,7 @@ import { KSteps, KStep } from "kui-weapp";
 export default class Demo extends Component {
   render() {
     return (
-      <KSteps>
+      <KSteps direction="vertical">
         <KStep
           renderTitle={<View>第一步</View>}
           renderDescription={<View>这里是描述</View>}

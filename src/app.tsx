@@ -19,22 +19,22 @@ class App extends Component {
    */
   config: Config = {
     pages: [
-      // "pages/index/index",
+      "pages/index/index",
 
-      // "pages/basic/button/index",
-      // "pages/basic/cell/index",
-      // "pages/basic/icon/index",
-      // "pages/basic/layout/index",
+      "pages/basic/button/index",
+      "pages/basic/cell/index",
+      "pages/basic/icon/index",
+      "pages/basic/layout/index",
 
-      // "pages/feedback/action-sheet/index",
-      // "pages/feedback/alert/index",
-      // "pages/feedback/loading/index",
-      // "pages/feedback/progress/index",
+      "pages/feedback/action-sheet/index",
+      "pages/feedback/alert/index",
+      "pages/feedback/loading/index",
+      "pages/feedback/progress/index",
 
       
-      // "pages/navigation/drawer/index",
-      // "pages/navigation/nav-bar/index",
-      // "pages/navigation/pagination/index",
+      "pages/navigation/drawer/index",
+      "pages/navigation/nav-bar/index",
+      "pages/navigation/pagination/index",
       "pages/navigation/steps/index",
       "pages/navigation/tab-bar/index",
 

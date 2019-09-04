@@ -21,7 +21,7 @@
         @include element('steps__step') {
             margin-right: 16px;
 
-            &:last-child {
+            &--last {
                 @include element('steps__title') {
                     &::after {
                         content: none;
@@ -54,7 +54,7 @@
             display: block;
             white-space: normal;
 
-            &:last-child {
+            &--last {
                 @include element('steps__tail') {
                     display: none;
                 }
@@ -107,7 +107,7 @@
             overflow: visible;
             text-align: center;
 
-            &:last-child {
+            &--last {
                 @include element('steps__tail') {
                     display: none;
                 }
@@ -152,7 +152,7 @@
         position: relative;
         overflow: hidden;
         white-space: nowrap;
-        display: inline-block;
+        
 
         @include bem-modifier('finish') {
             @include element('steps__tail') {
@@ -231,6 +231,7 @@
         position: relative;
         display: inline-block;
         color: #999;
+        font-size: 14px;
     }
 
     @include bem-element('description') {

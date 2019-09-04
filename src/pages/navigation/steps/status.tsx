@@ -16,7 +16,7 @@ export default class Demo extends Component {
           renderTitle={<View>第二步</View>}
           renderDescription={<View>这里是描述</View>}
           index={1}
-          status="process"
+          status="error"
         />
         <KStep
           renderTitle={<View>第三步</View>}

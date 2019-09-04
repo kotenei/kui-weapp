@@ -4,10 +4,12 @@ import classnames from "classnames";
 import KComponent from "../../common/component";
 import KIcon from "../icon/icon";
 import { StepProps } from "./typing";
+import "./host.scss";
 
 class Step extends KComponent<StepProps> {
   public static defaultProps = {
-    prefixCls: "k-steps"
+    prefixCls: "k-steps",
+    showNumber: true
   };
   public static displayName = "Step";
   public renderIcon() {
@@ -21,14 +23,22 @@ class Step extends KComponent<StepProps> {
     if (status === "error") {
       return <KIcon type="close" />;
     }
-    return showNumber && (index || 0) + 1;
+    return <View>{showNumber && (index || 0) + 1}</View>;
   }
   public render() {
-    const { status, prefixCls, nextError, iconType, iconInner } = this.props;
+    const {
+      status,
+      prefixCls,
+      nextError,
+      iconType,
+      iconInner,
+      last
+    } = this.props;
     const classString = classnames({
       [`${prefixCls}__step`]: true,
       [`${prefixCls}__step--${status}`]: !!status,
-      [`${prefixCls}__step--nextError`]: nextError
+      [`${prefixCls}__step--nextError`]: nextError,
+      [`${prefixCls}__step--last`]: !!last
     });
     const classes = classnames({
       [`${prefixCls}__icon`]: true,
